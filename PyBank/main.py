@@ -19,7 +19,7 @@ with open(csvpath, newline="")as csvfile:
     csv_header = next(csvfile) 
     print(csv_header)
 
-#create empty list named date_table    
+#create empty lists: date_table & btmline_table   
     date_table = []
     btmline_table = []
     
@@ -54,41 +54,35 @@ with open(csvpath, newline="")as csvfile:
             change_sum = change_sum + change_list[counter]
             counter += 1
     avg_change = round((change_sum / (total_month - 1)), 2) 
-    print(avg_change)      
+    #print(avg_change)      
+   
+    change_list.insert(0, 0)
+    date_change_list = zip(change_list, date_table) #here
+    grt_inc = [max(date_change_list)]
+    #print(grt_inc)
+    #print(type(grt_inc))    
+    date_change_list = zip(change_list, date_table) 
+    grt_dec = [min(date_change_list)]
+    #print(grt_dec)
+    #print(type(grt_dec))
+    
+    print("Financial Analysis")
+    print('--------------------')
+    print(f"Total Months: {total_month}")
+    print('Total: $', plsum)
+    print('Average  Change: $', avg_change)
+    print('Greatest Increase in Profits: $', grt_inc)
+    print('Greatest Decrease in Profits: $', grt_dec)
+    
+         
+       
    
     
     
+    
+     
     
          
         
         
-        
-    
-    
-    
-    
-
-
-    
-        
-#total_record = len(csv_reader)
-        #records = (','.join(row))
-        #print(records)
-#print(type(records))        
-   
-    
-    #Table = []
-    #Table.append(records) 
-    #print(Table)
-    
-        #print(records)
-    
-  
-    
-        
-        #records.append(row) 
-        #dates = set(rows(0))
-        #print(dates)
-        #month_tot = len(rows)
-        #print(month_tot)
-    
+       
