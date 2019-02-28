@@ -56,7 +56,11 @@ with open(csvpath, newline="")as csvfile:
     avg_change = round((change_sum / (total_month - 1)), 2) 
     #print(avg_change)      
    
+    
+  
     change_list.insert(0, 0)
+    #print(change_list)
+    #print(date_table)
     date_change_list = zip(change_list, date_table) #here
     grt_inc = [max(date_change_list)]
     #print(grt_inc)
@@ -65,16 +69,29 @@ with open(csvpath, newline="")as csvfile:
     grt_dec = [min(date_change_list)]
     #print(grt_dec)
     #print(type(grt_dec))
+     
     
+    
+    
+#print results    
     print("Financial Analysis")
     print('--------------------')
     print(f"Total Months: {total_month}")
     print('Total: $', plsum)
-    print('Average  Change: $', avg_change)
+    print('Average Change: $', avg_change)
     print('Greatest Increase in Profits: $', grt_inc)
     print('Greatest Decrease in Profits: $', grt_dec)
-    
-         
+
+#export results to csv file pybank_answers.csv    
+output_path = os.path.join("pybank_answers.csv")
+   
+with open(output_path, 'w', newline='') as csvfile:
+    csvwriter = csv.writer(csvfile, delimiter=',')
+    csvwriter.writerow(["Total Months:", total_month])
+    csvwriter.writerow(['Total: $', plsum])
+    csvwriter.writerow(['Average Change: $', avg_change])
+    csvwriter.writerow(['Greatest Increase in Profits', grt_inc])
+    csvwriter.writerow(['Greatest Decrease in Profits', grt_dec])     
        
    
     
