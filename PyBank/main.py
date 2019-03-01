@@ -61,12 +61,21 @@ with open(csvpath, newline="")as csvfile:
     change_list.insert(0, 0)
     #print(change_list)
     #print(date_table)
-    date_change_list = zip(change_list, date_table) #here
+    date_change_list = zip(date_table, change_list) #here
+    new_date_change_list = dict(date_change_list)
+   
+    grt_inc = max(new_date_change_list.items(), key = lambda x: x[1])
+    print(grt_inc)
+    
+    grt_dec = min(new_date_change_list.items(), key = lambda x: x[1])
+    print(grt_dec)
+        
+                    
     grt_inc = [max(date_change_list)]
     #print(grt_inc)
     #print(type(grt_inc))    
-    date_change_list = zip(change_list, date_table) 
-    grt_dec = [min(date_change_list)]
+   # date_change_list = zip(change_list, date_table) 
+    #grt_dec = [min(date_change_list)]
     #print(grt_dec)
     #print(type(grt_dec))
      
@@ -74,13 +83,13 @@ with open(csvpath, newline="")as csvfile:
     
     
 #print results    
-    print("Financial Analysis")
-    print('--------------------')
-    print(f"Total Months: {total_month}")
-    print('Total: $', plsum)
-    print('Average Change: $', avg_change)
-    print('Greatest Increase in Profits: $', grt_inc)
-    print('Greatest Decrease in Profits: $', grt_dec)
+   # print("Financial Analysis")
+   # print('--------------------')
+   # print(f"Total Months: {total_month}")
+    #print('Total: $', plsum)
+    #print('Average Change: $', avg_change)
+    #print('Greatest Increase in Profits: $', grt_inc)
+    #print('Greatest Decrease in Profits: $', grt_dec)
 
 #export results to csv file pybank_answers.csv    
 output_path = os.path.join("pybank_answers.csv")

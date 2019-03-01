@@ -41,9 +41,18 @@ with open(csvpath, newline="")as csvfile:
     print(candidate_list)
     
     
-    for can in candidate:
-        khan_vote = candidate.count('khan')
-        li_vote = candidate.count('li')
-        otool_vote = candidate.count("O'Tooley")
-        correy_vote = candidate.count('Correy')
-   
+    #for can in candidate:
+    khan_vote = candidate.count('Khan')
+    li_vote = candidate.count('Li')
+    otool_vote = candidate.count("O'Tooley")
+    correy_vote = candidate.count('Correy')
+    print(khan_vote)
+    print(li_vote)
+    print(otool_vote)
+    print(correy_vote)
+    
+    khan_per = round(((khan_vote / votescast)*100), 3)
+    li_per = round(((li_vote / votescast)*100), 3)  
+    otool_per = round(((otool_vote / votescast)*100), 3)
+    correy_per = round(((correy_vote / votescast)*100), 3)
+    print(khan_per, li_per, otool_per, correy_per)
